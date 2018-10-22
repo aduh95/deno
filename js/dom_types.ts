@@ -70,7 +70,7 @@ interface AbortSignalEventMap {
   abort: ProgressEvent;
 }
 
-interface EventTarget {
+export interface EventTarget {
   addEventListener(
     type: string,
     listener: EventListenerOrEventListenerObject | null,
@@ -142,35 +142,38 @@ interface EventListener {
   (evt: Event): void;
 }
 
-interface EventInit {
+export interface EventInit {
   bubbles?: boolean;
   cancelable?: boolean;
   composed?: boolean;
 }
 
-interface Event {
-  readonly bubbles: boolean;
-  cancelBubble: boolean;
-  readonly cancelable: boolean;
-  readonly composed: boolean;
-  readonly currentTarget: EventTarget | null;
-  readonly defaultPrevented: boolean;
-  readonly eventPhase: number;
-  readonly isTrusted: boolean;
-  returnValue: boolean;
-  readonly srcElement: Element | null;
-  readonly target: EventTarget | null;
-  readonly timeStamp: number;
+export enum EventPhase {
+  NONE = 0,
+  CAPTURING_PHASE = 1,
+  AT_TARGET = 2,
+  BUBBLING_PHASE = 3,
+}
+
+export interface Event {
   readonly type: string;
-  deepPath(): EventTarget[];
-  initEvent(type: string, bubbles?: boolean, cancelable?: boolean): void;
-  preventDefault(): void;
-  stopImmediatePropagation(): void;
+  readonly target: EventTarget | null;
+  readonly currentTarget: EventTarget | null;
+  composedPath(): EventTarget[];
+
+  readonly eventPhase: number;
+
   stopPropagation(): void;
-  readonly AT_TARGET: number;
-  readonly BUBBLING_PHASE: number;
-  readonly CAPTURING_PHASE: number;
-  readonly NONE: number;
+  stopImmediatePropagation(): void;
+
+  readonly bubbles: boolean;
+  readonly cancelable: boolean;
+  preventDefault(): void;
+  readonly defaultPrevented: boolean;
+  readonly composed: boolean;
+
+  readonly isTrusted: boolean;
+  readonly timeStamp: Date;
 }
 
 export interface File extends Blob {

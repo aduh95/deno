@@ -8,6 +8,7 @@ import "./buffer_test.ts";
 import "./chmod_test.ts";
 import "./compiler_test.ts";
 import "./console_test.ts";
+import "./event_test.ts";
 import "./copy_file_test.ts";
 import "./dir_test";
 import "./fetch_test.ts";

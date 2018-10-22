@@ -3,6 +3,7 @@ import * as blob from "./blob";
 import * as file from "./file";
 import * as formdata from "./form_data";
 import * as console_ from "./console";
+import * as event from "./event";
 import * as fetch_ from "./fetch";
 import { Headers } from "./headers";
 import { globalEval } from "./global_eval";
@@ -38,6 +39,8 @@ window.TextDecoder = textEncoding.TextDecoder;
 window.atob = textEncoding.atob;
 window.btoa = textEncoding.btoa;
 
+window.Event = event.Event;
+window.EventInit = event.EventInit;
 window.URLSearchParams = urlSearchParams.URLSearchParams;
 
 window.fetch = fetch_.fetch;
