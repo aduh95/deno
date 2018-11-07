@@ -4,6 +4,7 @@ import * as file from "./file";
 import * as formdata from "./form_data";
 import * as console_ from "./console";
 import * as fetch_ from "./fetch";
+import { EventTarget } from "./event_target";
 import { Headers } from "./headers";
 import { globalEval } from "./global_eval";
 import { libdeno } from "./libdeno";
@@ -44,6 +45,7 @@ window.fetch = fetch_.fetch;
 
 // using the `as` keyword to mask the internal types when generating the
 // runtime library
+window.EventTarget = EventTarget as domTypes.EventTargetConstructor;
 window.Headers = Headers as domTypes.HeadersConstructor;
 window.Blob = blob.DenoBlob;
 window.File = file.DenoFile;

@@ -70,7 +70,11 @@ interface AbortSignalEventMap {
   abort: ProgressEvent;
 }
 
-interface EventTarget {
+export interface EventTargetConstructor {
+  new (): EventTarget;
+  prototype: EventTarget;
+}
+export interface EventTarget {
   addEventListener(
     type: string,
     listener: EventListenerOrEventListenerObject | null,
@@ -138,7 +142,7 @@ export interface URLSearchParams {
   ): void;
 }
 
-interface EventListener {
+export interface EventListener {
   (evt: Event): void;
 }
 
@@ -148,7 +152,7 @@ interface EventInit {
   composed?: boolean;
 }
 
-interface Event {
+export interface Event {
   readonly bubbles: boolean;
   cancelBubble: boolean;
   readonly cancelable: boolean;
@@ -188,15 +192,6 @@ interface ProgressEvent extends Event {
   readonly total: number;
 }
 
-interface EventListenerOptions {
-  capture?: boolean;
-}
-
-interface AddEventListenerOptions extends EventListenerOptions {
-  once?: boolean;
-  passive?: boolean;
-}
-
 interface AbortSignal extends EventTarget {
   readonly aborted: boolean;
   // tslint:disable-next-line:no-any
@@ -231,8 +226,17 @@ interface ReadableStream {
   getReader(): ReadableStreamReader;
 }
 
-interface EventListenerObject {
+export interface EventListenerObject {
   handleEvent(evt: Event): void;
+}
+
+export interface EventListenerOptions {
+  capture?: boolean;
+}
+
+export interface AddEventListenerOptions extends EventListenerOptions {
+  once?: boolean;
+  passive?: boolean;
 }
 
 interface ReadableStreamReader {

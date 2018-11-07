@@ -10,6 +10,7 @@ import "./compiler_test.ts";
 import "./console_test.ts";
 import "./copy_file_test.ts";
 import "./dir_test";
+// import "./event_target_test.ts"; // Tests don't pass without Event API
 import "./fetch_test.ts";
 import "./file_test.ts";
 import "./files_test.ts";
