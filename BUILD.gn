@@ -89,6 +89,7 @@ ts_sources = [
   "js/dom_types.ts",
   "js/errors.ts",
   "js/event.ts",
+  "js/event_target.ts",
   "js/fetch.ts",
   "js/file.ts",
   "js/headers.ts",
